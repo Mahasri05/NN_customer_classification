@@ -14,7 +14,7 @@ You are required to help the manager to predict the right group of the new custo
 
 ## Neural Network Model
 
-<img width="1692" height="987" alt="image" src="https://github.com/user-attachments/assets/f69b02ca-877a-4cdd-900c-6c660380539c" />
+<img width="688" height="1053" alt="image" src="https://github.com/user-attachments/assets/805538ad-4c68-4ba7-b8b0-1d13cc2cb57c" />
 
 ## DESIGN STEPS
 
@@ -64,22 +64,17 @@ class PeopleClassifier(nn.Module):
         super(PeopleClassifier, self).__init__()
 
         self.net = nn.Sequential(
-            nn.Linear(input_size, 64),
+            nn.Linear(input_size, 32),
             nn.ReLU(),
 
-            nn.Linear(64, 32),
+            nn.Linear(32, 16),
             nn.ReLU(),
 
-            nn.Linear(32, 4)
+            nn.Linear(16, 4)
         )
 
     def forward(self, x):
         return self.net(x)
-
-
-
-    def forward(self, x):
-        #Include your code here
         
 
 ```
@@ -89,9 +84,7 @@ input_size = X_train.shape[1]
 model = PeopleClassifier(input_size)
 
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(model.parameters(), lr=0.001)
-
-
+optimizer = optim.Adam(model.parameters(), lr=0.0005)
 ```
 ```python
 def train_model(model, train_loader, criterion, optimizer, epochs):
@@ -111,7 +104,7 @@ def train_model(model, train_loader, criterion, optimizer, epochs):
 
             total_loss += loss.item()
 
-        print(f"Epoch {epoch+1}/{epochs} Loss: {total_loss:.4f}")
+        print(f"Epoch {epoch+1}/{epochs} Loss: {total_loss:.4f}"))
 
 ```
 
@@ -127,16 +120,16 @@ def train_model(model, train_loader, criterion, optimizer, epochs):
 
 ### Confusion Matrix
 
-<img width="563" height="513" alt="image" src="https://github.com/user-attachments/assets/cb74a079-156c-4d2c-ad41-da1f278465f3" />
+<img width="762" height="626" alt="image" src="https://github.com/user-attachments/assets/15892723-3287-413c-8793-24a3ef2e1b26" />
 
 ### Classification Report
 
-<img width="595" height="257" alt="image" src="https://github.com/user-attachments/assets/12eba282-74b9-43d2-95e4-8be614f2f9b5" />
+<img width="642" height="327" alt="image" src="https://github.com/user-attachments/assets/8bacd60f-0484-4365-906c-4c12b73ed016" />
 
 
 ### New Sample Data Prediction
 
-<img width="653" height="233" alt="image" src="https://github.com/user-attachments/assets/757ab009-b1a6-49aa-afd1-8c81b6cb3530" />
+<img width="677" height="342" alt="image" src="https://github.com/user-attachments/assets/ac3bf92d-12e3-42cc-bfe4-cb05f68076d6" />
 
 ## RESULT
 Thus the neural network classification model was successfully developed.
